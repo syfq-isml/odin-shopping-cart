@@ -1,10 +1,29 @@
-function Navbar() {
+import { Link } from "react-router-dom";
+
+function Navbar({ qty }) {
 	return (
-		<div>
-			<h1>Home</h1>
-			<h1>About</h1>
-			<h1>Shop</h1>
-		</div>
+		<nav id="navbar" className="fl-row-cont">
+			<div className="fl-row-cont logo">
+				<Link to="/">
+					<div className="logo__outer">
+						<h1 className="logo__inner">THE FURNITURE STORE</h1>
+					</div>
+				</Link>
+			</div>
+			<div className="fl-row-cont fl-centered navbar__link">
+				<Link to="/">
+					<h2>Home</h2>
+				</Link>
+				<Link to="/products">
+					<h2>Products</h2>
+				</Link>
+				<Link to="/cart">
+					<h2>
+						Cart ( <span className="navbar__cart-qty">{qty}</span> )
+					</h2>
+				</Link>
+			</div>
+		</nav>
 	);
 }
 

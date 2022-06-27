@@ -5,12 +5,12 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-function SharedLayout() {
+function SharedLayout({ qty }) {
 	return (
 		<>
 			<Banner />
 			<Header />
-			<Navbar />
+			<Navbar qty={qty} />
 			<Outlet />
 			<Footer />
 		</>
