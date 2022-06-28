@@ -28,8 +28,14 @@ function Footer() {
 			<div className="footer__section fl-col-cont">
 				<h3>Sign up for our monthly newsletter!</h3>
 				<form onSubmit={(e) => e.preventDefault()}>
-					<input type="text" placeholder="Email"></input>
-					<button type="submit">Sign Up</button>
+					<input
+						type="text"
+						placeholder="Email"
+						className="footer__input"
+					></input>
+					<button type="submit" className="footer__btn">
+						Sign Up
+					</button>
 				</form>
 			</div>
 		</footer>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Promo1() {
 	return (
-		<div className="promo fl-col-cont fl-centered">
+		<div className="promo1 fl-col-cont fl-centered">
 			<div className="promo1__heading fl-col-cont">
 				<h1>SUN'S OUT,</h1>
 				<h1>FUN'S OUT!</h1>
