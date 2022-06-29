@@ -154,7 +154,8 @@ li {
 	background-position: 0% 50%;
 }
 
-.promo__padding {
+.promo__padding,
+.global__padding {
 	padding: 20px;
 }
 
@@ -224,4 +225,29 @@ li {
 .error-page {
 	gap: 10px;
 	min-height: 500px;
+}
+
+.products__categories {
+	gap: 10px;
+}
+
+.products__category-btns {
+	gap: 10px;
+}
+
+.products__category-btn {
+	border: 2px solid black;
+	border-radius: 10px;
+	width: fit-content;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+.products__category-btn--active {
+	border: 2px solid black;
+	border-radius: 10px;
+	width: fit-content;
+	padding: 5px 10px;
+	background-color: black;
+	color: white;
 }
