@@ -7,13 +7,15 @@ import Footer from "../components/Footer";
 
 function SharedLayout({ qty }) {
 	return (
-		<>
-			<Banner />
-			<Header />
-			<Navbar qty={qty} />
-			<Outlet />
+		<div className="fl-col-cont shared-layout">
+			<div>
+				<Banner />
+				<Header />
+				<Navbar qty={qty} />
+				<Outlet />
+			</div>
 			<Footer />
-		</>
+		</div>
 	);
 }
 

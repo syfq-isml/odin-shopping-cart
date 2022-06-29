@@ -7,6 +7,7 @@
 
 body {
 	font-family: "Rubik", sans-serif;
+	overflow-y: scroll;
 }
 
 *,
@@ -50,6 +51,11 @@ li {
 }
 
 /* --- INDIVIDUAL --- */
+
+.shared-layout {
+	justify-content: space-between;
+	min-height: 100vh;
+}
 
 #banner {
 	background-color: var(--grey-accent);
@@ -213,4 +219,9 @@ li {
 	font-size: 1.5rem;
 	text-transform: uppercase;
 	font-weight: 600;
+}
+
+.error-page {
+	gap: 10px;
+	min-height: 500px;
 }
