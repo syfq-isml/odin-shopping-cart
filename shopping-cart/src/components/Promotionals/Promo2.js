@@ -12,7 +12,7 @@ function Promo2() {
 			<div className="promo2__subtext">
 				<p>Members enjoy an additional 20% discount on checkout!*</p>
 			</div>
-			<Link to="/products">
+			<Link to="/products/all">
 				<button className="promo2__browseBtn">SHOP NOW</button>
 			</Link>
 		</div>

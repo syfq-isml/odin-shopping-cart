@@ -60,7 +60,7 @@ const products = [
 		category: "livingroom",
 		desc: "Coffee Table, 90cm x 60cm",
 		price: 67.0,
-		name: "LIQUOINTE",
+		name: "CAFEBLE",
 		image: "",
 	},
 	{
@@ -72,3 +72,5 @@ const products = [
 		image: "",
 	},
 ];
+
+export default products;

@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route,
+	Navigate,
+} from "react-router-dom";
 import { useState } from "react";
 
 import "./styles/normalize.css";
@@ -22,6 +27,7 @@ function App() {
 					<Route index element={<Home />} />
 
 					<Route path="products" element={<Products />}>
+						<Route index element={<Navigate to="all" replace />} />
 						<Route path=":category" element={<ProductCategories />}>
 							<Route path=":productInfo" element={<ProductInfo />} />
 						</Route>

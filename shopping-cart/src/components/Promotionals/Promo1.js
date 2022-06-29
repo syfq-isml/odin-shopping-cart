@@ -11,7 +11,7 @@ function Promo1() {
 				<h2>Colors to match the summer vibes</h2>
 				<p>Shop our latest summer collection.</p>
 			</div>
-			<Link to="/products">
+			<Link to="/products/all">
 				<button className="promo__browseBtn">Browse Collection</button>
 			</Link>
 		</div>

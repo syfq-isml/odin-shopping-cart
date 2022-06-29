@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, Navigate } from "react-router-dom";
 
 function Products() {
 	const [isClicked, setIsClicked] = useState("all");
@@ -13,7 +13,7 @@ function Products() {
 			<div className="products__categories fl-col-cont fl-centered">
 				<h1>Categories:</h1>
 				<div className="fl-row-cont products__category-btns">
-					<Link to="/products">
+					<Link to="/products/all">
 						<button
 							data-btn="all"
 							className={
@@ -52,7 +52,7 @@ function Products() {
 							Kitchen
 						</button>
 					</Link>
-					<Link to="/products/living-room">
+					<Link to="/products/livingroom">
 						<button
 							data-btn="livingroom"
 							className={

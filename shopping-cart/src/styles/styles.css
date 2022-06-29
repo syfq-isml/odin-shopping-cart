@@ -3,6 +3,8 @@
 :root {
 	--grey-accent: rgb(198, 198, 198);
 	--grey-light: rgb(232, 232, 232);
+	--font-serif: "Lora", serif;
+	--font-sans-serif: "Rubik", sans-serif;
 }
 
 body {
@@ -250,4 +252,31 @@ li {
 	padding: 5px 10px;
 	background-color: black;
 	color: white;
+}
+
+.productCategories {
+	flex-wrap: wrap;
+	padding: 20px 10vw;
+}
+
+.productCards__card {
+	width: 200px;
+	border: 1px solid black;
+	padding: 10px;
+
+	gap: 5px;
+
+	cursor: pointer;
+}
+
+.productCards__name {
+	font-family: "Lora", serif;
+	font-weight: 700;
+	font-size: 1.2rem;
+}
+
+.productCards__price {
+	margin-left: auto;
+	font-weight: 700;
+	font-family: var(--font-serif);
 }
