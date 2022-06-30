@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, Outlet, Navigate } from "react-router-dom";
 
-function Products() {
+function Products({ render, children }) {
 	const [isClicked, setIsClicked] = useState("all");
 
 	const makeBtnActive = (e) => {
@@ -67,8 +67,6 @@ function Products() {
 					</Link>
 				</div>
 			</div>
-
-			<Outlet />
 		</div>
 	);
 }
