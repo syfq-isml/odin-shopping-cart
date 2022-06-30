@@ -52,6 +52,10 @@ li {
 	align-items: center;
 }
 
+.fl-align-start {
+	align-self: flex-start;
+}
+
 /* --- INDIVIDUAL --- */
 
 .shared-layout {
@@ -255,18 +259,37 @@ li {
 }
 
 .productCategories {
-	flex-wrap: wrap;
 	padding: 20px 10vw;
+	gap: 30px;
+}
+
+.productCategories__cards {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	row-gap: 20px;
+	column-gap: 20px;
 }
 
 .productCards__card {
-	width: 200px;
-	border: 1px solid black;
-	padding: 10px;
-
+	padding: 20px;
 	gap: 5px;
 
 	cursor: pointer;
+
+	-webkit-box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.07);
+	box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.07);
+
+	border-radius: 7px;
+}
+
+.productCards__photo {
+	aspect-ratio: 1/1;
+	width: 200px;
+	color: red;
+	border-radius: inherit;
+
+	-webkit-box-shadow: inset 0px 0px 14px 0px rgba(0, 0, 0, 0.07);
+	box-shadow: inset 0px 0px 14px 0px rgba(0, 0, 0, 0.07);
 }
 
 .productCards__name {

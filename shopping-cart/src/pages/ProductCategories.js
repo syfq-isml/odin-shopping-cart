@@ -16,10 +16,18 @@ function ProductCategories() {
 		productsInCategory = products.filter((obj) => obj.category === category);
 	}
 	return (
-		<div className="fl-row-cont productCategories">
-			{productsInCategory.map((item) => (
-				<ProductCards key={uniqid()} product={item} />
-			))}
+		<div className="fl-col-cont fl-centered productCategories">
+			<div className="productCategories__cards">
+				{productsInCategory.map((item) => (
+					<div className="fl-col-cont fl-centered">
+						<ProductCards key={uniqid()} product={item} />
+					</div>
+				))}
+			</div>
+			<p>
+				Showing {productsInCategory.length} of {productsInCategory.length}{" "}
+				results
+			</p>
 		</div>
 	);
 }
