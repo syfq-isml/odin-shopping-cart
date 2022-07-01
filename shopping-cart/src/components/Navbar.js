@@ -12,7 +12,7 @@ function Navbar({ qty }) {
 			</div>
 			<div className="fl-row-cont fl-centered navbar__link">
 				<Link to="/">
-					<h2>Home</h2>
+					<h2 className="fl-row-cont">Home</h2>
 				</Link>
 				<Link to="/products/all">
 					<h2>Products</h2>
