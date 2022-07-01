@@ -1,8 +1,13 @@
-import { useState } from "react";
-import { Link, Outlet, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, Outlet, Navigate, useParams } from "react-router-dom";
 
 function Products({ render, children }) {
-	const [isClicked, setIsClicked] = useState("all");
+	const { category } = useParams();
+	const [isClicked, setIsClicked] = useState(`${category}`);
+
+	useEffect(() => {
+		setIsClicked((prevState) => (prevState = `${category}`));
+	}, [category]);
 
 	const makeBtnActive = (e) => {
 		setIsClicked((prevState) => (prevState = e.target.dataset.btn));
