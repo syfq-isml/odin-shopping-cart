@@ -1,6 +1,6 @@
 function QtySelectBar() {
 	return (
-		<select>
+		<select id="qtySelectBar">
 			<option value="">Qty</option>
 			<option value="1">1</option>
 			<option value="1">2</option>
@@ -11,7 +11,7 @@ function QtySelectBar() {
 			<option value="1">7</option>
 			<option value="1">8</option>
 			<option value="1">9</option>
-			<option value="1">10+</option>
+			<option value="1">10</option>
 		</select>
 	);
 }
