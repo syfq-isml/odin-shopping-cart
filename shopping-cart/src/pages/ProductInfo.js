@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import QtySelectBar from "../components/QtySelectBar";
 
@@ -7,11 +8,28 @@ const translateCategory = (str) => {
 	if (str === "livingroom") return "Living Room";
 };
 
-function ProductInfo({ products }) {
-	console.log(products);
+function ProductInfo({ products, addToCart }) {
 	const { productId } = useParams();
-	console.log(productId);
 	const product = products.find((product) => product.id === +productId);
+
+	const [state, setState] = useState({
+		qty: "",
+		item: product,
+	});
+
+	const handleClick = () => {
+		addToCart(state);
+		alert("Added to cart!");
+	};
+
+	const handleChange = (e) => {
+		setState({
+			...state,
+			qty: e.target.value,
+		});
+	};
+
+	console.log(state.qty);
 
 	return (
 		<div className="fl-row-cont fl-centered global__padding">
@@ -29,11 +47,25 @@ function ProductInfo({ products }) {
 				</div>
 				<h1 className="serif fs-13rem">${product.price}</h1>
 				<div className="fl-row-cont fl-align-center fs-12rem productInfo__qtyControl">
-					<QtySelectBar />
+					<QtySelectBar handleChange={handleChange} />
 				</div>
-				<button id="productInfo__submitBtn" className="products__category-btn">
-					ADD TO CART
-				</button>
+				{state.qty === "" ? (
+					<button
+						id="productInfo__submitBtn"
+						className="products__category-btn"
+						disabled={true}
+					>
+						ADD TO CART
+					</button>
+				) : (
+					<button
+						id="productInfo__submitBtn"
+						className="products__category-btn"
+						onClick={handleClick}
+					>
+						ADD TO CART
+					</button>
+				)}
 			</div>
 		</div>
 	);

@@ -1,8 +1,28 @@
-function QtySelectBar() {
+import { useEffect, useRef } from "react";
+
+import uniqid from "uniqid";
+
+function QtySelectBar({ handleChange, qty }) {
+	const options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
 	return (
-		<select id="qtySelectBar">
+		<select defaultValue={qty} id="qtySelectBar" onChange={handleChange}>
 			<option value="">Qty</option>
-			<option value="1">1</option>
+			{options.map((option) => {
+				return (
+					<option key={uniqid()} value={option}>
+						{option}
+					</option>
+				);
+			})}
+		</select>
+	);
+}
+
+export default QtySelectBar;
+
+/*
+<option value="1">1</option>
 			<option value="1">2</option>
 			<option value="1">3</option>
 			<option value="1">4</option>
@@ -12,8 +32,4 @@ function QtySelectBar() {
 			<option value="1">8</option>
 			<option value="1">9</option>
 			<option value="1">10</option>
-		</select>
-	);
-}
-
-export default QtySelectBar;
+*/

@@ -19,9 +19,14 @@ import ProductCategories from "./pages/ProductCategories";
 import ProductInfo from "./pages/ProductInfo";
 import Cart from "./pages/Cart";
 import ErrorPage from "./pages/ErrorPage";
+import CartSubmit from "./pages/CartSubmit";
 
 function App() {
-	const [cart, setCart] = useState(["hello"]);
+	const [cart, setCart] = useState([]);
+
+	const addToCart = (obj) => {
+		setCart([...cart, obj]);
+	};
 
 	return (
 		<Router>
@@ -42,12 +47,17 @@ function App() {
 							/>
 							<Route
 								path=":productId"
-								element={<ProductInfo products={dataProducts} />}
+								element={
+									<ProductInfo products={dataProducts} addToCart={addToCart} />
+								}
 							/>
 						</Route>
 					</Route>
 
-					<Route path="cart" element={<Cart />} />
+					<Route path="cart">
+						<Route index element={<Cart cart={cart} />} />
+						<Route path="success" element={<CartSubmit />} />
+					</Route>
 
 					<Route path="*" element={<ErrorPage />} />
 				</Route>

@@ -387,7 +387,13 @@ button {
 	font-weight: 700;
 }
 
-#productInfo__submitBtn:hover {
+#productInfo__submitBtn:disabled {
+	font-weight: 700;
+	color: #7a7a7a;
+	border: 2px solid rgb(109, 109, 109);
+}
+
+#productInfo__submitBtn:hover:not(:disabled) {
 	background-color: black;
 	color: white;
 }
