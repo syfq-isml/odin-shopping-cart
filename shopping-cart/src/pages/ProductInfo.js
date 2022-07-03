@@ -22,10 +22,10 @@ function ProductInfo({ products, addToCart }) {
 		alert("Added to cart!");
 	};
 
-	const handleChange = (e) => {
+	const handleChange = (value) => {
 		setState({
 			...state,
-			qty: e.target.value,
+			qty: value,
 		});
 	};
 
@@ -47,7 +47,7 @@ function ProductInfo({ products, addToCart }) {
 				</div>
 				<h1 className="serif fs-13rem">${product.price}</h1>
 				<div className="fl-row-cont fl-align-center fs-12rem productInfo__qtyControl">
-					<QtySelectBar handleChange={handleChange} />
+					<QtySelectBar changeHandler={handleChange} />
 				</div>
 				{state.qty === "" ? (
 					<button

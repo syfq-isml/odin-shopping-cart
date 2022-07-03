@@ -1,12 +1,25 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import uniqid from "uniqid";
 
-function QtySelectBar({ handleChange, qty }) {
+function QtySelectBar({ changeHandler, qty }) {
 	const options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	console.log(qty);
+
+	const [currentValue, setCurrentValue] = useState("");
+
+	const handleChange = (e) => {
+		const selected = e.target.value;
+		changeHandler(selected);
+		setCurrentValue(selected);
+	};
 
 	return (
-		<select defaultValue={qty} id="qtySelectBar" onChange={handleChange}>
+		<select
+			value={qty == null ? currentValue : qty}
+			id="qtySelectBar"
+			onChange={handleChange}
+		>
 			<option value="">Qty</option>
 			{options.map((option) => {
 				return (
