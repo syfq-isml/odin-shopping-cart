@@ -4,7 +4,6 @@ import uniqid from "uniqid";
 
 function QtySelectBar({ changeHandler, qty }) {
 	const options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-	console.log(qty);
 
 	const [currentValue, setCurrentValue] = useState("");
 

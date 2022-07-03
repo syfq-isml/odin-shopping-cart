@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import uniqid from "uniqid";
 
-function FilledCart({ cart }) {
+function FilledCart({ cart, removeFromCart }) {
 	const calculateSubtotal = (price, qty) => {
 		return price * qty;
 	};
@@ -21,7 +21,7 @@ function FilledCart({ cart }) {
 	return (
 		<div className="fl-col-cont global__padding cart__filledCart">
 			<div>
-				{cart.map((item) => {
+				{cart.map((item, index) => {
 					return (
 						<div key={uniqid()} className="fl-row-cont cart__productView">
 							<div id="cart_productView-left" className="fl-row-cont">
@@ -46,6 +46,8 @@ function FilledCart({ cart }) {
 								<button
 									id="cart__deleteBtn"
 									className="fl-align-end btn-transparent"
+									data-id={item.item.id}
+									onClick={removeFromCart}
 								>
 									<img src={deleteSvg}></img>
 								</button>

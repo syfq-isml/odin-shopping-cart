@@ -28,6 +28,17 @@ function App() {
 		setCart([...cart, obj]);
 	};
 
+	const removeFromCart = (e) => {
+		// confirm("Are you sure you want to delete this item from your cart?");
+		const id = e.target.dataset.id;
+		setCart((prevState) => {
+			const copy = [...prevState];
+			let index = copy.findIndex((item) => item.item.id === id);
+			copy.splice(index, 1);
+			return copy;
+		});
+	};
+
 	return (
 		<Router>
 			<Routes>
@@ -55,7 +66,10 @@ function App() {
 					</Route>
 
 					<Route path="cart">
-						<Route index element={<Cart cart={cart} />} />
+						<Route
+							index
+							element={<Cart cart={cart} removeFromCart={removeFromCart} />}
+						/>
 						<Route path="success" element={<CartSubmit />} />
 					</Route>
 
@@ -67,3 +81,6 @@ function App() {
 }
 
 export default App;
+
+// if already exists, add on to qty instead
+// confirmation before deleting

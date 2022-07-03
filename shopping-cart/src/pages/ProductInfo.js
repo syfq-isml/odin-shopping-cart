@@ -29,8 +29,6 @@ function ProductInfo({ products, addToCart }) {
 		});
 	};
 
-	console.log(state.qty);
-
 	return (
 		<div className="fl-row-cont fl-centered global__padding">
 			<div className="fl-col-cont fl-centered productInfo__image">
@@ -70,11 +68,5 @@ function ProductInfo({ products, addToCart }) {
 		</div>
 	);
 }
-
-// select - use onChange
-
-// use conditional rendering on - / + btns
-// --> less than 0? remove -
-// --> more than 10? remove +
 
 export default ProductInfo;
