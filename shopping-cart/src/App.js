@@ -25,7 +25,17 @@ function App() {
 	const [cart, setCart] = useState([]);
 
 	const addToCart = (obj) => {
-		setCart([...cart, obj]);
+		// check if cart contains obj first
+		// if yes, change qty only
+		// if no, add the entire obj
+		let index = cart.findIndex((item) => item.item.id === obj.item.id);
+		if (index === -1) {
+			// does not contain
+			setCart([...cart, obj]);
+			return;
+		}
+
+		changeQty(obj.qty, obj.item.id);
 	};
 
 	const removeFromCart = (id) => {
@@ -69,7 +79,11 @@ function App() {
 							<Route
 								path=":productId"
 								element={
-									<ProductInfo products={dataProducts} addToCart={addToCart} />
+									<ProductInfo
+										products={dataProducts}
+										cart={cart}
+										addToCart={addToCart}
+									/>
 								}
 							/>
 						</Route>

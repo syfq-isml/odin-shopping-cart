@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import QtySelectBar from "../components/QtySelectBar";
 
@@ -8,7 +8,7 @@ const translateCategory = (str) => {
 	if (str === "livingroom") return "Living Room";
 };
 
-function ProductInfo({ products, addToCart }) {
+function ProductInfo({ products, addToCart, cart }) {
 	const { productId } = useParams();
 	const product = products.find((product) => product.id === +productId);
 
@@ -16,6 +16,15 @@ function ProductInfo({ products, addToCart }) {
 		qty: "",
 		item: product,
 	});
+
+	const [status, setStatus] = useState({
+		containsItem: "",
+		qty: null,
+	});
+
+	useEffect(() => {
+		setStatus(checkIfCartContains());
+	}, []);
 
 	const handleClick = () => {
 		addToCart(state);
@@ -27,6 +36,19 @@ function ProductInfo({ products, addToCart }) {
 			...state,
 			qty: value,
 		});
+	};
+
+	const checkIfCartContains = () => {
+		let index = cart.findIndex((item) => item.item.id === +productId);
+
+		console.log(index);
+		if (index === -1) {
+			// does not contain
+			return { containsItem: false, qty: null };
+		} else {
+			let qty = cart[index].qty;
+			return { containsItem: true, qty };
+		}
 	};
 
 	return (
@@ -45,7 +67,11 @@ function ProductInfo({ products, addToCart }) {
 				</div>
 				<h1 className="serif fs-13rem">${product.price}</h1>
 				<div className="fl-row-cont fl-align-center fs-12rem productInfo__qtyControl">
-					<QtySelectBar changeHandler={handleChange} renderedBy="ProductInfo" />
+					<QtySelectBar
+						changeHandler={handleChange}
+						// qty={status.qty}
+						renderedBy="ProductInfo"
+					/>
 				</div>
 				{state.qty === "" ? (
 					<button
@@ -63,6 +89,15 @@ function ProductInfo({ products, addToCart }) {
 					>
 						ADD TO CART
 					</button>
+				)}
+				{status.containsItem ? (
+					<em>
+						<p>(Psst, this item is already in your cart.</p>
+						<p>You may set a new quantity in this page</p>
+						<p>or in your shopping cart if you need to.)</p>
+					</em>
+				) : (
+					""
 				)}
 			</div>
 		</div>
