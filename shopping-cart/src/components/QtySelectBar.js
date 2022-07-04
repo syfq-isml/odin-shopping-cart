@@ -2,14 +2,20 @@ import { useEffect, useRef, useState } from "react";
 
 import uniqid from "uniqid";
 
-function QtySelectBar({ changeHandler, qty }) {
+function QtySelectBar({ changeHandler, qty, renderedBy, productId }) {
 	const options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 	const [currentValue, setCurrentValue] = useState("");
 
 	const handleChange = (e) => {
 		const selected = e.target.value;
-		changeHandler(selected);
+		if (renderedBy === "ProductInfo") {
+			changeHandler(selected);
+			setCurrentValue(selected);
+			return;
+		}
+
+		changeHandler(selected, productId);
 		setCurrentValue(selected);
 	};
 

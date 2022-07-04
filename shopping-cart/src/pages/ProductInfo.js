@@ -45,7 +45,7 @@ function ProductInfo({ products, addToCart }) {
 				</div>
 				<h1 className="serif fs-13rem">${product.price}</h1>
 				<div className="fl-row-cont fl-align-center fs-12rem productInfo__qtyControl">
-					<QtySelectBar changeHandler={handleChange} />
+					<QtySelectBar changeHandler={handleChange} renderedBy="ProductInfo" />
 				</div>
 				{state.qty === "" ? (
 					<button

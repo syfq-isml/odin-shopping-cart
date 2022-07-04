@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import uniqid from "uniqid";
 
-function FilledCart({ cart, removeFromCart }) {
+function FilledCart({ cart, removeFromCart, changeQty }) {
 	const calculateSubtotal = (price, qty) => {
 		return price * qty;
 	};
@@ -38,7 +38,12 @@ function FilledCart({ cart, removeFromCart }) {
 									</div>
 									<div>
 										<h2 className="serif">${item.item.price}</h2>
-										<QtySelectBar qty={item.qty} />
+										<QtySelectBar
+											qty={item.qty}
+											changeHandler={changeQty}
+											renderedBy="FilledCart"
+											productId={item.item.id}
+										/>
 									</div>
 								</div>
 							</div>
@@ -46,8 +51,8 @@ function FilledCart({ cart, removeFromCart }) {
 								<button
 									id="cart__deleteBtn"
 									className="fl-align-end btn-transparent"
-									data-id={item.item.id}
-									onClick={removeFromCart}
+									onClick={() => removeFromCart(item.item.id)}
+									title="Remove item from cart"
 								>
 									<img src={deleteSvg}></img>
 								</button>

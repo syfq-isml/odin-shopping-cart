@@ -28,13 +28,23 @@ function App() {
 		setCart([...cart, obj]);
 	};
 
-	const removeFromCart = (e) => {
+	const removeFromCart = (id) => {
 		// confirm("Are you sure you want to delete this item from your cart?");
-		const id = e.target.dataset.id;
+
 		setCart((prevState) => {
 			const copy = [...prevState];
 			let index = copy.findIndex((item) => item.item.id === id);
+			console.log(index);
 			copy.splice(index, 1);
+			return copy;
+		});
+	};
+
+	const changeQty = (value, id) => {
+		setCart((prevState) => {
+			const copy = [...prevState];
+			let index = copy.findIndex((item) => item.item.id === id);
+			copy[index].qty = value;
 			return copy;
 		});
 	};
@@ -68,7 +78,13 @@ function App() {
 					<Route path="cart">
 						<Route
 							index
-							element={<Cart cart={cart} removeFromCart={removeFromCart} />}
+							element={
+								<Cart
+									cart={cart}
+									removeFromCart={removeFromCart}
+									changeQty={changeQty}
+								/>
+							}
 						/>
 						<Route path="success" element={<CartSubmit />} />
 					</Route>
