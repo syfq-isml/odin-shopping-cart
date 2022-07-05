@@ -1,11 +1,15 @@
 import QtySelectBar from "../QtySelectBar";
 import deleteSvg from "../../assets/delete.svg";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import uniqid from "uniqid";
+import { useState } from "react";
+import DeleteConfirmation from "./DeleteConfirmation";
 
 function FilledCart({ cart, removeFromCart, changeQty }) {
+	// const [isOpened, setIsOpened] = useState(false);
+
 	const calculateSubtotal = (price, qty) => {
 		return price * qty;
 	};
@@ -52,6 +56,7 @@ function FilledCart({ cart, removeFromCart, changeQty }) {
 									id="cart__deleteBtn"
 									className="fl-align-end btn-transparent"
 									onClick={() => removeFromCart(item.item.id)}
+									// onClick={() => setIsOpened(true)}
 									title="Remove item from cart"
 								>
 									<img src={deleteSvg}></img>
@@ -63,6 +68,10 @@ function FilledCart({ cart, removeFromCart, changeQty }) {
 									</h2>
 								</div>
 							</div>
+							{/* <DeleteConfirmation
+								isOpened={isOpened}
+								onClose={() => setIsOpened(false)}
+							/> */}
 						</div>
 					);
 				})}
@@ -73,9 +82,13 @@ function FilledCart({ cart, removeFromCart, changeQty }) {
 					<h1>Order Total:</h1>
 					<h1 className="serif fl-align-end">${calculateOrderTotal()}</h1>
 				</div>
-				<button id="checkout-btn" className="promo__browseBtn fl-align-end">
-					Checkout
-				</button>
+				<div className="fl-align-end">
+					<Link to="success">
+						<button id="checkout-btn" className="promo__browseBtn">
+							Checkout
+						</button>
+					</Link>
+				</div>
 			</div>
 		</div>
 	);

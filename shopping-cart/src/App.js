@@ -24,6 +24,8 @@ import CartSubmit from "./pages/CartSubmit";
 function App() {
 	const [cart, setCart] = useState([]);
 
+	const resetCart = () => setCart([]);
+
 	const addToCart = (obj) => {
 		// check if cart contains obj first
 		// if yes, change qty only
@@ -100,7 +102,10 @@ function App() {
 								/>
 							}
 						/>
-						<Route path="success" element={<CartSubmit />} />
+						<Route
+							path="success"
+							element={<CartSubmit cartOriginal={cart} resetCart={resetCart} />}
+						/>
 					</Route>
 
 					<Route path="*" element={<ErrorPage />} />
