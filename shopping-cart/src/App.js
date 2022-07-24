@@ -9,6 +9,8 @@ import { useState } from "react";
 import "./styles/normalize.css";
 import "./styles/styles.css";
 
+import uniqid from "uniqid";
+
 import dataProducts from "./data/dataProducts";
 
 import SharedLayout from "./pages/SharedLayout";

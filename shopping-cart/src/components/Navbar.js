@@ -19,7 +19,11 @@ function Navbar({ qty }) {
 				</Link>
 				<Link to="/cart">
 					<h2>
-						Cart ( <span className="navbar__cart-qty">{qty}</span> )
+						Cart ({" "}
+						<span className="navbar__cart-qty" data-testid="cart-qty">
+							{qty}
+						</span>{" "}
+						)
 					</h2>
 				</Link>
 			</div>
