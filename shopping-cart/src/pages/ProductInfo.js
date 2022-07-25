@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import QtySelectBar from "../components/QtySelectBar";
 
 const translateCategory = (str) => {
@@ -10,6 +10,8 @@ const translateCategory = (str) => {
 
 function ProductInfo({ products, addToCart, cart }) {
 	const { productId } = useParams();
+	const navigate = useNavigate();
+
 	const product = products.find((product) => product.id === +productId);
 
 	const [state, setState] = useState({
@@ -51,57 +53,59 @@ function ProductInfo({ products, addToCart, cart }) {
 		}
 	};
 
-	return (
-		<div className="fl-row-cont fl-centered global__padding">
-			<div className="fl-col-cont fl-centered productInfo__image">
-				<div>XXXX</div>
-			</div>
+	if (product == null) return <Navigate to="/error404" replace />;
+	else
+		return (
+			<div className="fl-row-cont fl-centered global__padding">
+				<div className="fl-col-cont fl-centered productInfo__image">
+					<div>XXXX</div>
+				</div>
 
-			<div className="fl-col-cont productInfo__details">
-				<div className="fl-col-cont">
-					<h1 className="serif fs-13rem">{product.name}</h1>
-					<p>{product.desc}</p>
-					<p>
-						in <em>Category: {translateCategory(product.category)}</em>
-					</p>
+				<div className="fl-col-cont productInfo__details">
+					<div className="fl-col-cont">
+						<h1 className="serif fs-13rem">{product.name}</h1>
+						<p>{product.desc}</p>
+						<p>
+							in <em>Category: {translateCategory(product.category)}</em>
+						</p>
+					</div>
+					<h1 className="serif fs-13rem">${product.price}</h1>
+					<div className="fl-row-cont fl-align-center fs-12rem productInfo__qtyControl">
+						<QtySelectBar
+							changeHandler={handleChange}
+							// qty={status.qty}
+							renderedBy="ProductInfo"
+						/>
+					</div>
+					{state.qty === "" ? (
+						<button
+							id="productInfo__submitBtn"
+							className="products__category-btn"
+							disabled={true}
+						>
+							ADD TO CART
+						</button>
+					) : (
+						<button
+							id="productInfo__submitBtn"
+							className="products__category-btn"
+							onClick={handleClick}
+						>
+							ADD TO CART
+						</button>
+					)}
+					{status.containsItem ? (
+						<em>
+							<p>(Psst, this item is already in your cart.</p>
+							<p>You may set a new quantity in this page</p>
+							<p>or in your shopping cart if you need to.)</p>
+						</em>
+					) : (
+						""
+					)}
 				</div>
-				<h1 className="serif fs-13rem">${product.price}</h1>
-				<div className="fl-row-cont fl-align-center fs-12rem productInfo__qtyControl">
-					<QtySelectBar
-						changeHandler={handleChange}
-						// qty={status.qty}
-						renderedBy="ProductInfo"
-					/>
-				</div>
-				{state.qty === "" ? (
-					<button
-						id="productInfo__submitBtn"
-						className="products__category-btn"
-						disabled={true}
-					>
-						ADD TO CART
-					</button>
-				) : (
-					<button
-						id="productInfo__submitBtn"
-						className="products__category-btn"
-						onClick={handleClick}
-					>
-						ADD TO CART
-					</button>
-				)}
-				{status.containsItem ? (
-					<em>
-						<p>(Psst, this item is already in your cart.</p>
-						<p>You may set a new quantity in this page</p>
-						<p>or in your shopping cart if you need to.)</p>
-					</em>
-				) : (
-					""
-				)}
 			</div>
-		</div>
-	);
+		);
 }
 
 export default ProductInfo;

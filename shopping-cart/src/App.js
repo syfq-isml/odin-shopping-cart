@@ -1,5 +1,5 @@
 import {
-	BrowserRouter as Router,
+	HashRouter as Router,
 	Routes,
 	Route,
 	Navigate,
@@ -110,7 +110,9 @@ function App() {
 						/>
 					</Route>
 
-					<Route path="*" element={<ErrorPage />} />
+					<Route path="error404" element={<ErrorPage />} />
+
+					<Route path="*" element={<Navigate to="/error404" replace />} />
 				</Route>
 			</Routes>
 		</Router>

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 
 import ProductCards from "../components/ProductCards";
 
@@ -8,6 +8,15 @@ import AddCatBar from "../components/AddCatBar";
 
 function ProductCategories({ products }) {
 	const { category } = useParams();
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		const allCategories = products.map((product) => product.category);
+		console.log(allCategories);
+		if (category !== "all" && allCategories.indexOf(category) === -1) {
+			navigate("/error404", { replace: true });
+		}
+	}, []);
 
 	let productsInCategory;
 
