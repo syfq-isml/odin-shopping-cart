@@ -27,7 +27,11 @@ function FilledCart({ cart, removeFromCart, changeQty }) {
 			<div>
 				{cart.map((item, index) => {
 					return (
-						<div key={uniqid()} className="fl-row-cont cart__productView">
+						<div
+							key={uniqid()}
+							className="fl-row-cont cart__productView"
+							data-testid="cart-product-view"
+						>
 							<div id="cart_productView-left" className="fl-row-cont">
 								<div>
 									<div className="cart__img-small">Image</div>
