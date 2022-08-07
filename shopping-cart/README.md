@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# The Furniture Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple mock e-commerce site that simulates a shopping experience on an online furniture store.
 
-## Available Scripts
+# Live Preview
 
-In the project directory, you can run:
+The live preview can be viewed [here](https://syfq-isml.github.io/odin-shopping-cart/).
 
-### `npm start`
+# Objectives & Outcomes
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The objective of the project is to set up a website where users can shop and order products online.  
+Thus, the project was built with the following key features in mind:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Users should be able to view all products
+2. Users should be able to view information of a single product
+3. Users should be able to select a certain quantity of a single product
+4. Users should be able to view a summary of what they are going to order
+5. Users should be able to change the quantity of a single product
+6. Users should be able to review their submitted order
 
-### `npm test`
+The learning outcomes were as follows:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Using a routing solution to navigate through pages
+2. Design an intuitive and authentic shopping experience
+3. Familiarise with state management and use of React hooks
+4. Experiment with application testing
+5. Implement a CSS methodology
 
-### `npm run build`
+# Reflections
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Challenges
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Layouts & Routing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Rendering HTML Dialogs
 
-### `npm run eject`
+- Rendering value of Qty Dropdown Menu
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Testing
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project has undergone testing with React Testing Library.  
+Since they are determined to be high value, the key features of the app (as outlined in the Objectives section above) took priority in testing, followed by testing of the individual components.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Technologies used
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- create-react-app
+- React Router
+- React Testing Library
 
-## Learn More
+# Sources and Credits
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Photo by <a href="https://unsplash.com/@alexagorn?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alexandra Gorn</a> on <a href="https://unsplash.com/s/photos/room?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Photo by <a href="https://unsplash.com/@jimmydean?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jimmy Dean</a> on <a href="https://unsplash.com/s/photos/family-room?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project was created as an assignment from [TheOdinProject](https://www.theodinproject.com/lessons/node-path-javascript-shopping-cart).
